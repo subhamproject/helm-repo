@@ -11,4 +11,14 @@ entries:
     urls:
     - https://github.com/subhamproject/helm-repo/releases/download/myfirstchart-0.2.0/myfirstchart-0.2.0.tgz
     version: 0.2.0
-generated: "2023-11-27T13:54:03.861660433Z"
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-11-27T14:02:55.684559179Z"
+    description: A Helm chart for Kubernetes
+    digest: a511dbb42ae21932e9063d03ac9a741a1363b32316cb9e491551be062a4c88d2
+    name: myfirstchart
+    type: application
+    urls:
+    - https://github.com/subhamproject/helm-repo/releases/download/myfirstchart-0.1.0/myfirstchart-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-11-27T14:02:55.684567354Z"
