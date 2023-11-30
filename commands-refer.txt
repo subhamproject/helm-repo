@@ -1,0 +1,100 @@
+#!/bin/bash
+
+helm list
+helm ls
+
+helm list --output=yaml
+
+helm list --deployed
+helm list --superseded
+
+helm repo add nginx https://bitname.com/bitnami
+
+helm 
+helm install mynginx mybitnami/nginx
+
+helm install mybitnami/nginx --generate-name
+
+helm install myargo mybitnami/nginx --atomic
+
+helm install mynignx mybitnam/nginx --version "1.0.0"
+
+helm uninstall mynginx
+
+helm repo add helm-repo https://subhamproject.github.io/helm-repo
+
+helm search repo mychart
+
+helm search repo mychart --versions
+
+helm search repo mychart --version 1.0.0
+
+helm upgrade mynignx mybitnami/mychar --set "image.tag=2.0.0"
+
+helm histroy myargo
+
+helm status myargo
+
+helm list --uninstalled
+
+helm rollback myargo 2
+
+helm status myargo --show-desc
+
+helm status myargo --show-resources
+
+
+helm status myargo --show-resources -n dev
+
+
+helm status myargo --show-resources --namespaces dev
+
+helm upgrade myargo mybitnami/myargo --version "1.1.0"
+
+helm rollback myargo
+
+helm history myargo
+
+helm rollback myargo 1<version>
+
+helm uninstall myargo --keep-history
+
+helm install myargo bitnam/myargo --set service.nodePort=3100 --dry-run
+
+helm install myargo bitnam/myargo --set service.nodePort=3100 --dry-run --debug
+
+helm upgrade --install mychart helm-repo/myfirstchart --version 0.2.0 --atomic --wait
+
+helm upgrade --install mychart helm-repo/myfirstchart --version 0.1.0  --timeout=5m --atomic --wait
+
+helm upgrade --install mychart helm-repo/myfirstchart --version 0.1.0  --timeout=5m --atomic --wait --debug
+
+helm upgrade --install --wait --timeout 20 demo demo/
+
+helm get values myargo
+
+helm get values myargo --revision 1
+
+helm get manifest myargo
+
+helm get manifest myargo --revision 2
+
+helm get notes myargo
+
+helm get hooks myargo
+
+helm install myargo bitnam/myargo --set service.nodePort=null
+
+helm install myargo .
+
+
+helm install myargo . --dry-run
+
+
+helm pull mybitname/nginx 
+
+helm pull mybitname/nginx --version 1.0.0
+
+
+https://github.com/stacksimplify/helm-masterclass/tree/main/13-Helm-Dev-If-Else-EQ
+

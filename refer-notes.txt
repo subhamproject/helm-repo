@@ -1,0 +1,11 @@
+
+https://github.com/nokia/helm-charts/blob/master/stable/parse/templates/NOTES.txt
+
+https://github.com/helm/charts/blob/master/stable/mongodb/templates/NOTES.txt
+
+https://gitea.com/gitea/helm-chart/src/branch/main/templates/NOTES.txt
+
+
+https://github.com/helm/charts/blob/master/stable/velero/templates/NOTES.txt
+
+https://github.com/helm/charts/blob/master/stable/traefik/templates/NOTES.txt

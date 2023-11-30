@@ -1,0 +1,91 @@
+{{- if .Capabilities.APIVersions.Has "apps/v1" }}
+apiVersion: apps/v1
+{{- else }}
+apiVersion: apps/v1beta1
+{{- end }}
+kind: Deployment
+metadata:
+  name: {{ include "chart.fullname" . }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      {{- include "chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "chart.selectorLabels" . | nindent 8 }}
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: "tier"
+                operator: In
+                values:
+                  - "frontend"
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ required "You must provide your own image by setting the image value" .Values.image.repository }}:{{ required "You must provide image tag" .Values.image.tag  }}
+        #image: "{{ .Values.image.repository | default "nginx" }}:{{ .Values.image.tag | default "1.16.0" }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.service.port }}
+          name: http
+          protocol: TCP
+        env:
+        - name: PORT
+          value: {{ .Values.service.port |quote  }}
+        readinessProbe:
+           tcpSocket:
+            host:
+            port: {{ .Values.service.port }}
+           initialDelaySeconds: 15
+           periodSeconds: 10
+           timeoutSeconds: 10
+           successThreshold: 1
+           failureThreshold: 1
+        livenessProbe:
+           tcpSocket:
+            host:
+            port: {{ .Values.service.port }}
+           initialDelaySeconds: 15
+           periodSeconds: 10
+           timeoutSeconds: 10
+           successThreshold: 1
+           failureThreshold: 1
+        startupProbe:
+           tcpSocket:
+            host:
+            port: {{ .Values.service.port }}
+           initialDelaySeconds: 15
+           periodSeconds: 5
+           timeoutSeconds: 10
+           successThreshold: 1
+           failureThreshold: 1
+        resources:
+           {{- toYaml .Values.resources | nindent 12 }}
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: {{ include "chart.serviceAccountName" . }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+       {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
