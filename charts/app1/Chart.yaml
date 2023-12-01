@@ -3,4 +3,4 @@ name: app1
 description: A Helm Chart To Deploy A Custom Service
 type: application
 version: 0.1.1
-appVersion: "0.1.1"
+appVersion: 0.1.1
