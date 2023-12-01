@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: "ghcr.io/subhamproject/argo-app/main"
-  pullPolicy: IfNotPresent
+  repository: "ghcr.io/subhamproject/argo-demo/main"
+  pullPolicy: Always #IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
@@ -42,7 +42,7 @@ service:
   enabled: true
   type: NodePort
   port: 80
-  nodePort: "" #30071
+  nodePort: "30072" #30071
 
 ingress:
   enabled: false
@@ -59,7 +59,7 @@ ingress:
 
 # metrics-server add-on required
 hpa:
-  enabled: true
+  enabled: false
   maxReplicas: 10
   # average total CPU usage per pod (1-100)
   cpu: 40
