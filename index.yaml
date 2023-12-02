@@ -61,6 +61,17 @@ entries:
     urls:
     - https://github.com/subhamproject/helm-repo/releases/download/app1-0.1.0/app1-0.1.0.tgz
     version: 0.1.0
+  app2:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-12-02T10:24:42.813294263Z"
+    description: A Helm Chart To Deploy A Custom Service
+    digest: fda731c41e6740c35961f80864919ac6bd9a9a486658ce80dbbaebdfaa9dfda5
+    name: app2
+    type: application
+    urls:
+    - https://github.com/subhamproject/helm-repo/releases/download/app2-0.1.0/app2-0.1.0.tgz
+    version: 0.1.0
   myfirstchart:
   - apiVersion: v2
     appVersion: 0.2.0
@@ -82,4 +93,4 @@ entries:
     urls:
     - https://github.com/subhamproject/helm-repo/releases/download/myfirstchart-0.1.0/myfirstchart-0.1.0.tgz
     version: 0.1.0
-generated: "2023-12-02T10:09:24.929586532Z"
+generated: "2023-12-02T10:24:42.813311836Z"
