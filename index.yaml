@@ -63,6 +63,16 @@ entries:
     version: 0.1.0
   app2:
   - apiVersion: v2
+    appVersion: 0.1.2
+    created: "2023-12-02T10:57:12.71052464Z"
+    description: A Helm Chart To Deploy A Custom Service
+    digest: b61533231d2cd7b9f4d33f12e25735ef53daa068bda642cd7d55f86e0b9f08d7
+    name: app2
+    type: application
+    urls:
+    - https://github.com/subhamproject/helm-repo/releases/download/app2-0.1.2/app2-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 0.1.1
     created: "2023-12-02T10:51:20.719674388Z"
     description: A Helm Chart To Deploy A Custom Service
@@ -103,4 +113,4 @@ entries:
     urls:
     - https://github.com/subhamproject/helm-repo/releases/download/myfirstchart-0.1.0/myfirstchart-0.1.0.tgz
     version: 0.1.0
-generated: "2023-12-02T10:51:20.719700937Z"
+generated: "2023-12-02T10:57:12.710554787Z"
