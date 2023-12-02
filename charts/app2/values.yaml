@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: ghcr.io/subhamproject/argo-app/main
   pullPolicy: Always
-  tag: db44dbc
+  tag: 71f0437
 imagePullSecrets:
   - name: gitsecret
 nameOverride: ''
