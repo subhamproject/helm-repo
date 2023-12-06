@@ -10,6 +10,11 @@ helm list --superseded
 
 helm repo add nginx https://bitname.com/bitnami
 
+helm upgrade --install falco falco \
+    --repo https://falcosecurity.github.io/charts \
+    --values values.yaml --namespace falco --create-namespace \
+    --wait
+
 helm 
 helm install mynginx mybitnami/nginx
 
