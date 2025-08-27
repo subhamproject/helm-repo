@@ -1,0 +1,19 @@
+https://codefresh.io/blog/helm-hooks/
+
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{ .Release.Name }}-post-install-job"
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "-5"       # Controls order if multiple hooks
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: post-install-job
+        image: "alpine:3.3"
+        command: ["/bin/sleep", "10"]
