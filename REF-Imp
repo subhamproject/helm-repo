@@ -1,5 +1,6 @@
 https://codefresh.io/blog/helm-hooks/
 
+https://anaisurl.com/a-deep-dive-into-helm-sub-charts/
 
 apiVersion: batch/v1
 kind: Job
